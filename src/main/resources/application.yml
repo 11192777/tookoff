@@ -1,1 +1,17 @@
+spring:
+  application:
+    name: e-archives
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.104:3306/takeoff?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true
+    username: root
+    password: aXNxaW5neXU=
+  liquibase:
+    change-log: classpath:db/master.xml
 
+logging:
+  level:
+    liquibase: debug
