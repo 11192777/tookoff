@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public'}
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+    maven { url 'https://maven.aliyun.com/repository/google' }
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    google()
+//    jcenter()
+    mavenCentral()
+}
+dependencies {
+    implementation gradleApi()
+    //因为我这个自定义Plugin是用java写的不是Groovy所以这个localGroovy不需要
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.2.1'
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
